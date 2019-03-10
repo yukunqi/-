@@ -12,8 +12,10 @@
 
 我们假设我们的函数是：
 
+![](https://latex.codecogs.com/gif.latex?$$h\left&space;(&space;x&space;\right&space;)=sign\left&space;(&space;\left&space;(&space;\sum_{i=1}^{n}w_{i}x_{i}&space;\right&space;)-threshlod\right)$$)
 
-$$h\left ( x \right )=sign\left ( \left ( \sum_{i=1}^{n}w_{i}x_{i} \right )-threshlod\right)$$
+
+
 
 
 其中：
@@ -29,12 +31,7 @@ $$w_{i}  代表权重向量的第i个权重$$
 
 通过假设W0=-threshold，x0=1来实现
 
-\begin{align*}
-h\left ( x \right )&=sign\left ( \left ( \sum_{i=1}^{n}w_{i}x_{i} \right )-threshlod\right)\\\\
-&=sign\left ( \left ( \sum_{i=1}^{n}w_{i}x_{i} \right )+(-threshlod) \times (+1)\right)\\\\
-&=sign\left ( \sum_{i=0}^{n}w_{i}x_{i} \right)\\\\
-&=sign\left ( W\cdot X\right)
-\end{align*}
+![](https://latex.codecogs.com/gif.latex?\begin{align*}&space;h\left&space;(&space;x&space;\right&space;)&=sign\left&space;(&space;\left&space;(&space;\sum_{i=1}^{n}w_{i}x_{i}&space;\right&space;)-threshlod\right)\\\\&space;&=sign\left&space;(&space;\left&space;(&space;\sum_{i=1}^{n}w_{i}x_{i}&space;\right&space;)&plus;(-threshlod)&space;\times&space;(&plus;1)\right)\\\\&space;&=sign\left&space;(&space;\sum_{i=0}^{n}w_{i}x_{i}&space;\right)\\\\&space;&=sign\left&space;(&space;W\cdot&space;X\right)&space;\end{align*})
 
 
 好了，我们得到了我们的这个公式，那么接下来我们需要做的就是通过训练来获取一个完美的公式，
@@ -78,18 +75,12 @@ h\left ( x \right )&=sign\left ( \left ( \sum_{i=1}^{n}w_{i}x_{i} \right )-thres
 
 
 不等式1:对于任意的i来说
-\begin{align*}
-(y_{i}W^{*}\cdot X_{i})>\min_{j}(y_{j}W^{*}\cdot X_{j})>0,for \quad j \in \left \{ 1...n \right \}
-\end{align*}
+![](https://latex.codecogs.com/gif.latex?\begin{align*}&space;(y_{i}W^{*}\cdot&space;X_{i})>\min_{j}(y_{j}W^{*}\cdot&space;X_{j})>0,for&space;\quad&space;j&space;\in&space;\left&space;\{&space;1...n&space;\right&space;\}&space;\end{align*})
 
 
 
 不等式2:
-\begin{align*} 
-W^{*}\cdot W^{t+1}&=W^{*}\cdot (W^{t}+X_{i}y_{i})\\
-&=W^{*}\cdot W^{t}+y_{i}W^{*}X_{i}\\
-&>W^{*}\cdot W^{t}+\min_{j}y_{j}W^{*}\cdot X_{j} ,for \quad j\in \left \{ 1...n \right \}
-\end{align*}
+![](https://latex.codecogs.com/gif.latex?\begin{align*}&space;W^{*}\cdot&space;W^{t&plus;1}&=W^{*}\cdot&space;(W^{t}&plus;X_{i}y_{i})\\&space;&=W^{*}\cdot&space;W^{t}&plus;y_{i}W^{*}X_{i}\\&space;&>W^{*}\cdot&space;W^{t}&plus;\min_{j}y_{j}W^{*}\cdot&space;X_{j}&space;,for&space;\quad&space;j\in&space;\left&space;\{&space;1...n&space;\right&space;\}&space;\end{align*})
 
 由1和2两个式子就可以得到一个结论，就是Wt通过修正得到Wt+1之后和我们要的完美W*更加接近了
 
@@ -98,12 +89,7 @@ W^{*}\cdot W^{t+1}&=W^{*}\cdot (W^{t}+X_{i}y_{i})\\
 那么下来要证明的就是长度的变化其实并没有多大的改变，
 
 不等式3：
-\begin{align*} 
-\left \| W^{t+1} \right \|^{2}&=(W^{t}+y_{i}X_{i})^{2}\\
-&=\left \| W^{t} \right \|^{2}+2\cdot y_{i}W^{t}X_{i}+(y_{i}X_{i})^{2}\\
-&<\left \| W^{t} \right \|^{2}+(y_{i}X_{i})^{2}\\
-&<\left \| W^{t} \right \|^{2}+\max_{j}\left \| y_{i}X_{i} \right \|^{2} \quad ,for \ j \in \{1...n\}
-\end{align*}
+![](https://latex.codecogs.com/gif.latex?\begin{align*}&space;\left&space;\|&space;W^{t&plus;1}&space;\right&space;\|^{2}&=(W^{t}&plus;y_{i}X_{i})^{2}\\&space;&=\left&space;\|&space;W^{t}&space;\right&space;\|^{2}&plus;2\cdot&space;y_{i}W^{t}X_{i}&plus;(y_{i}X_{i})^{2}\\&space;&<\left&space;\|&space;W^{t}&space;\right&space;\|^{2}&plus;(y_{i}X_{i})^{2}\\&space;&<\left&space;\|&space;W^{t}&space;\right&space;\|^{2}&plus;\max_{j}\left&space;\|&space;y_{i}X_{i}&space;\right&space;\|^{2}&space;\quad&space;,for&space;\&space;j&space;\in&space;\{1...n\}&space;\end{align*})
 
 我们可以看到Wt+1其实比Wt只是多了一个常数部分。因此可以得到Wt+1实际上是在角度方面更加靠近我们的完美W*
 
@@ -113,38 +99,19 @@ W^{*}\cdot W^{t+1}&=W^{*}\cdot (W^{t}+X_{i}y_{i})\\
 
 
 那么我们继续稍微迭代一下不等式2:
-\begin{align*} 
-W^{*}\cdot W^{t+1}&=W^{*}\cdot (W^{t}+X_{i}y_{i})\\
-&=W^{*}\cdot W^{t}+y_{i}W^{*}X_{i}\\
-&>W^{*}\cdot W^{t}+\min_{j}y_{j}W^{*}\cdot X_{j} ,for \quad j\in \left \{ 1...n \right \}\\
-&>W^{*}\cdot W^{t-1}+\min_{j}y_{j}W^{*}\cdot X_{j}+\min_{j}y_{j}W^{*}\cdot X_{j}\\
-&>W^{*}\cdot W^{0}+T\cdot \min_{j}y_{j}W^{*}\cdot X_{j}
-\end{align*}
+
 
 以及不等式3也是一个道理：
 
-\begin{align*} 
-\left \| W^{t+1} \right \|^{2}&=(W^{t}+y_{i}X_{i})^{2}\\
-&=\left \| W^{t} \right \|^{2}+2\cdot y_{i}W^{t}X_{i}+(y_{i}X_{i})^{2}\\
-&<\left \| W^{t} \right \|^{2}+(y_{i}X_{i})^{2}\\
-&<\left \| W^{t} \right \|^{2}+\max_{j}\left \| y_{i}X_{i} \right \|^{2} \quad ,for \ j \in \{1...n\}\\
-&<\left \| W^{t-1} \right \|^{2}+\max_{j}\left \| y_{i}X_{i} \right \|^{2}++\max_{j}\left \| y_{i}X_{i} \right \|^{2}\\
-&<\left \| W^{0} \right \|^{2}+T\cdot \max_{j}\left \| y_{i}X_{i} \right \|^{2}
-\end{align*}
+![](https://latex.codecogs.com/gif.latex?\begin{align*}&space;W^{*}\cdot&space;W^{t&plus;1}&=W^{*}\cdot&space;(W^{t}&plus;X_{i}y_{i})\\&space;&=W^{*}\cdot&space;W^{t}&plus;y_{i}W^{*}X_{i}\\&space;&>W^{*}\cdot&space;W^{t}&plus;\min_{j}y_{j}W^{*}\cdot&space;X_{j}&space;,for&space;\quad&space;j\in&space;\left&space;\{&space;1...n&space;\right&space;\}\\&space;&>W^{*}\cdot&space;W^{t-1}&plus;\min_{j}y_{j}W^{*}\cdot&space;X_{j}&plus;\min_{j}y_{j}W^{*}\cdot&space;X_{j}\\&space;&>W^{*}\cdot&space;W^{0}&plus;T\cdot&space;\min_{j}y_{j}W^{*}\cdot&space;X_{j}&space;\end{align*})
 
 
 在经过T次迭代后，我们看看W*和Wt之间的靠近程度
 
-\begin{align*} 
-\frac{W^{*}\cdot W^{t}}{\left \| W^{*} \right \|\cdot \left \| W^{t} \right \|}&\geq \frac{T\cdot \min_{j}y_{j}W^{*}\cdot X_{j}}{\left \| W^{*} \right \|\sqrt{T}\max_{j}\left \| y_{i}X_{i} \right \|}\\
-&\geq \sqrt{T}\cdot \frac{\min_{j}y_{j}W^{*}\cdot X_{j}}{\left \| W^{*} \right \|\max_{j}\left \| y_{i}X_{i} \right \|}
-\end{align*}
+![](https://latex.codecogs.com/gif.latex?\begin{align*}&space;\frac{W^{*}\cdot&space;W^{t}}{\left&space;\|&space;W^{*}&space;\right&space;\|\cdot&space;\left&space;\|&space;W^{t}&space;\right&space;\|}&\geq&space;\frac{T\cdot&space;\min_{j}y_{j}W^{*}\cdot&space;X_{j}}{\left&space;\|&space;W^{*}&space;\right&space;\|\sqrt{T}\max_{j}\left&space;\|&space;y_{i}X_{i}&space;\right&space;\|}\\&space;&\geq&space;\sqrt{T}\cdot&space;\frac{\min_{j}y_{j}W^{*}\cdot&space;X_{j}}{\left&space;\|&space;W^{*}&space;\right&space;\|\max_{j}\left&space;\|&space;y_{i}X_{i}&space;\right&space;\|}&space;\end{align*})
 
 
 因此T的上界为
-\begin{align*} 
-T\leq \frac{\left ( W^{*}\cdot W^{t} \right )^{2}\cdot (max_{i}y_{i}X_{i})^{2}}{\left \| W^{t} \right \|^{2}\cdot (\min_{j}y_{i}W^{*}X_{i})^{2}}\
-\end{align*}
-
+![](https://latex.codecogs.com/gif.latex?\begin{align*}&space;T\leq&space;\frac{\left&space;(&space;W^{*}\cdot&space;W^{t}&space;\right&space;)^{2}\cdot&space;(max_{i}y_{i}X_{i})^{2}}{\left&space;\|&space;W^{t}&space;\right&space;\|^{2}\cdot&space;(\min_{j}y_{i}W^{*}X_{i})^{2}}\&space;\end{align*})
 
 也就是说我们经过T次迭代后能够得到这样的W*
